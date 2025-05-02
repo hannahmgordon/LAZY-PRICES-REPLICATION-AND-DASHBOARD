@@ -209,7 +209,7 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 
 # ---------- Page: Our Team ----------
-else 
+else:
 
  st.title("Meet Our Team")
     st.image("pics/Hannah.png", caption = "Hannah Gordon",  use_container_width=True)
