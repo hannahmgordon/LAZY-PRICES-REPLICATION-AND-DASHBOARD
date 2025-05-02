@@ -210,6 +210,8 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 # ---------- Page: Our Team ----------
 elif page == "Our Team":
    import streamlit as st
+import base64
+import os
 
 st.markdown("""
     <style>
@@ -240,6 +242,14 @@ st.markdown("""
 
 st.markdown("<h1 style='text-align: center;'>Meet Our Team</h1>", unsafe_allow_html=True)
 
+# Helper function to encode image to base64
+def img_to_base64(img_path):
+    if os.path.exists(img_path):
+        with open(img_path, "rb") as f:
+            data = f.read()
+            return base64.b64encode(data).decode()
+    return ""
+
 # Team data
 team = [
     {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
@@ -252,9 +262,10 @@ team = [
 for i in range(0, len(team), 2):
     cols = st.columns(2)
     for col, person in zip(cols, team[i:i+2]):
+        img_data = img_to_base64(person['img'])
         col.markdown(f"""
         <div class='team-card'>
-            <img src='{person['img']}' class='team-img'>
+            <img src='data:image/png;base64,{img_data}' class='team-img'>
             <div class='team-name'>{person['name']}</div>
             <div class='team-desc'>{person['desc']}</div>
         </div>
