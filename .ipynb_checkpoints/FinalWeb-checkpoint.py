@@ -209,23 +209,53 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 # ---------- Page: Our Team ----------
 elif page == "Our Team":
-    st.title("Meet Our Team")
+   import streamlit as st
 
-    team = [
-        {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
-        {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
-        {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
-        {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
-    ]
+st.markdown("""
+    <style>
+    .team-card {
+        background-color: #f5f5f5;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+    }
+    .team-img {
+        border-radius: 10px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .team-name {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    .team-desc {
+        font-size: 0.9em;
+        color: gray;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-    st.markdown("<br><br>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Meet Our Team</h1>", unsafe_allow_html=True)
 
-    for i in range(0, len(team), 2):
-        cols = st.columns(2)
-        for col, person in zip(cols, team[i:i+2]):
-            if person["name"] == "Akanksha Gavade":
-                col.image(person["img"], width=200)
-            else:
-                col.image(person["img"], width=220)
-            col.markdown(f"**{person['name']}**", unsafe_allow_html=True)
-            col.markdown(f"<div style='margin-top:-0.3em; font-size: 0.9em; color: gray;'>{person['desc']}</div>", unsafe_allow_html=True)
+# Team data
+team = [
+    {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
+    {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
+    {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
+    {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
+]
+
+# Display team in 2x2 grid with styled cards
+for i in range(0, len(team), 2):
+    cols = st.columns(2)
+    for col, person in zip(cols, team[i:i+2]):
+        col.markdown(f"""
+        <div class='team-card'>
+            <img src='{person['img']}' class='team-img'>
+            <div class='team-name'>{person['name']}</div>
+            <div class='team-desc'>{person['desc']}</div>
+        </div>
+        """, unsafe_allow_html=True)
