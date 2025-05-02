@@ -22,7 +22,7 @@ sp500 = sp500.rename(columns={"Return": "SP500_Return"})
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Annual Returns by Company", "10K Cosine Similarity vs Monthly Return Over Time", "Report"], key="nav", label_visibility="visible")
+page = st.sidebar.radio("Go to", ["Home", "Annual Returns by Company", "10K Cosine Similarity vs Monthly Return Over Time", "Report", "Our Team"], key="nav", label_visibility="visible")
 st.markdown("<style>.stRadio > div{gap: 1.2em !important;} .block-container { padding-top: 1rem !important; }</style>", unsafe_allow_html=True)
 
 # ---------- Page: Home ----------
@@ -32,7 +32,7 @@ if page == "Home":
     st.markdown("""
     This project was inspired by the research paper [Lazy Prices](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1658471), which explores the predictive power of textual changes in 10-K filings. Our analysis aims to replicate and extend these findings through our own implementation.
 
-    The project proposal, code, and data processing for this dashboard can be found in the following GitHub repository: [Final Project Repository](https://github.com/martifigueres/Final-Project-HPST.git).
+    The project proposal, code, and data processing for this dashboard can be found in the following GitHub repository: [Final Project Repository](https://github.com/hannahmgordon/LAZY-PRICES-REPLICATION-AND-DASHBOARD).
     """)
 
     st.markdown("""
@@ -206,3 +206,13 @@ Our original hypothesis that similar disclosures are associated with stronger lo
     # Final images
     st.image("pics/pic1.png", use_container_width=True)
     st.image("pics/pic2.png", use_container_width=True)
+
+
+# ---------- Page: Our Team ----------
+elif page == "Our Team":
+
+ st.title("Meet Our Team")
+    st.image("pics/Hannah.png", caption = "Hannah Gordon",  use_container_width=True)
+    st.image("pics/akanksha.jpeg", caption = "Akanksha Gavade", use_container_width=True)
+    st.image("pics/marti.jpeg", caption = "Marti Figueres", use_container_width=True)
+    st.image("pics/Henry.jpeg", caption = "Henry Piotrowski", use_container_width=True)
