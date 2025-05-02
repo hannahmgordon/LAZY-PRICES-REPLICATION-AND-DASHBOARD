@@ -143,7 +143,7 @@ elif page == "10K Cosine Similarity vs Monthly Return Over Time":
     st.markdown("**Note:** Cosine Similarity is based on filing date (blue), returns are monthly with 3-month smoothing (orange).")
 
 # ---------- Page: Report ----------
-else:
+elif page == "Report":
     st.title("Report")
     st.markdown("## Method")
     st.markdown("""
@@ -209,7 +209,7 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 
 # ---------- Page: Our Team ----------
-elif page == "Our Team":
+else 
 
  st.title("Meet Our Team")
     st.image("pics/Hannah.png", caption = "Hannah Gordon",  use_container_width=True)
