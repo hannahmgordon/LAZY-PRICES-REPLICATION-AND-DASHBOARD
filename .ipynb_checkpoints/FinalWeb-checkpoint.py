@@ -210,8 +210,18 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 # ---------- Page: Our Team ----------
 else:
-    st.title("Meet Our Team")
-    st.image("pics/Hannah.png", caption = "Hannah Gordon",  use_container_width=True)
-    st.image("pics/akanksha.jpeg", caption = "Akanksha Gavade", use_container_width=True)
-    st.image("pics/marti.jpeg", caption = "Marti Figueres", use_container_width=True)
-    st.image("pics/Henry.jpeg", caption = "Henry Piotrowski", use_container_width=True)
+   cols = st.columns(4)
+
+# Each person's info
+team = [
+    {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
+    {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
+    {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
+    {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
+]
+
+# Loop through columns and display each team member
+for col, person in zip(cols, team):
+    col.image(person["img"], width=150)
+    col.markdown(f"**{person['name']}**")
+    col.markdown(f"<span style='font-size: 0.85em; color: gray;'>{person['desc']}</span>", unsafe_allow_html=True)
