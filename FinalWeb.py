@@ -210,17 +210,22 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 # ---------- Page: Our Team ----------
 else:
-   cols = st.columns(4)
+  import streamlit as st
 
-# Each person's info
+st.title("Meet Our Team")
+
+# Each person's info — define BEFORE the loop
 team = [
-    {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
+   {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
     {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
     {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
     {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
 ]
 
-# Loop through columns and display each team member
+# Create 4 columns
+cols = st.columns(4)
+
+# Populate each column with image and captions
 for col, person in zip(cols, team):
     col.image(person["img"], width=150)
     col.markdown(f"**{person['name']}**")
