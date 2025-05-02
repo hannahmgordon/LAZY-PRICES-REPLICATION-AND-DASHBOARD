@@ -207,32 +207,25 @@ Our original hypothesis that similar disclosures are associated with stronger lo
     st.image("pics/pic1.png", use_container_width=True)
     st.image("pics/pic2.png", use_container_width=True)
 
-
 # ---------- Page: Our Team ----------
 elif page == "Our Team":
- import streamlit as st
+    st.title("Meet Our Team")
 
-st.title("Meet Our Team")
+    team = [
+        {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
+        {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
+        {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
+        {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
+    ]
 
-# Each person's info — define BEFORE the loop
-team = [
-    {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
-    {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
-    {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
-    {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
-]
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
-# Add spacing to push content down (avoids image cropping)
-st.markdown("<br><br>", unsafe_allow_html=True)
-
-# Display in two rows of two columns each
-for i in range(0, len(team), 2):
-    cols = st.columns(2)
-    for col, person in zip(cols, team[i:i+2]):
-        # Custom sizing: smaller height for Akanksha to balance layout
-        if person["name"] == "Akanksha Gavade":
-            col.image(person["img"], width=200)
-        else:
-            col.image(person["img"], width=220)
-        col.markdown(f"**{person['name']}**", unsafe_allow_html=True)
-        col.markdown(f"<div style='margin-top:-0.3em; font-size: 0.9em; color: gray;'>{person['desc']}</div>", unsafe_allow_html=True)
+    for i in range(0, len(team), 2):
+        cols = st.columns(2)
+        for col, person in zip(cols, team[i:i+2]):
+            if person["name"] == "Akanksha Gavade":
+                col.image(person["img"], width=200)
+            else:
+                col.image(person["img"], width=220)
+            col.markdown(f"**{person['name']}**", unsafe_allow_html=True)
+            col.markdown(f"<div style='margin-top:-0.3em; font-size: 0.9em; color: gray;'>{person['desc']}</div>", unsafe_allow_html=True)
