@@ -210,7 +210,7 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 # ---------- Page: Our Team ----------
 else:
-  import streamlit as st
+ import streamlit as st
 
 st.title("Meet Our Team")
 
@@ -222,11 +222,13 @@ team = [
     {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
 ]
 
-# Create 4 columns
-cols = st.columns(4)
+# Add spacing to push content down (avoids image cropping)
+st.markdown("<br><br>", unsafe_allow_html=True)
 
-# Populate each column with image and captions
-for col, person in zip(cols, team):
-    col.image(person["img"], width=150)
-    col.markdown(f"**{person['name']}**")
-    col.markdown(f"<span style='font-size: 0.85em; color: gray;'>{person['desc']}</span>", unsafe_allow_html=True)
+# Display in two rows of two columns each
+for i in range(0, len(team), 2):
+    cols = st.columns(2)
+    for col, person in zip(cols, team[i:i+2]):
+        col.image(person["img"], width=220)
+        col.markdown(f"**{person['name']}**")
+        col.markdown(f"<span style='font-size: 0.9em; color: gray;'>{person['desc']}</span>", unsafe_allow_html=True)
