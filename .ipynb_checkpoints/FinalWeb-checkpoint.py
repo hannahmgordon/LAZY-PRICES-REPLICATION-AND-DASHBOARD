@@ -249,7 +249,7 @@ elif page == "Our Team":
 
     team = [
         {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
-        {"img": "pics/akanksha.png", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
+        {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
         {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
         {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
     ]
