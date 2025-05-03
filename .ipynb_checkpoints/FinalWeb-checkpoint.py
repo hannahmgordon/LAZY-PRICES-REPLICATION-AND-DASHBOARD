@@ -209,7 +209,7 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 # ---------- Page: Our Team ----------
 elif page == "Our Team":
-   import streamlit as st
+  import streamlit as st
 import base64
 import os
 
@@ -221,11 +221,11 @@ st.markdown("""
         padding: 20px;
         text-align: center;
         box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     .team-img {
         border-radius: 10px;
-        width: 100%;
+        width: 85%;
         height: auto;
         margin-bottom: 10px;
     }
