@@ -206,6 +206,7 @@ Our original hypothesis that similar disclosures are associated with stronger lo
     # Final images
     st.image("pics/pic1.png", use_container_width=True)
     st.image("pics/pic2.png", use_container_width=True)
+    st.image("pics/pic3.png", use_container_width=True)
 
 # ---------- Page: Our Team ----------
 # ---------- Page: Our Team ----------
