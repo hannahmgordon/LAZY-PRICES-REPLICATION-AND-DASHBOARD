@@ -209,64 +209,59 @@ Our original hypothesis that similar disclosures are associated with stronger lo
 
 # ---------- Page: Our Team ----------
 elif page == "Our Team":
-   import streamlit as st
-import base64
-import os
+    import base64
+    import os
 
-st.markdown("""
-    <style>
-    .team-card {
-        background-color: #f5f5f5;
-        border-radius: 12px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
-    }
-    .team-img {
-        border-radius: 10px;
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-    }
-    .team-name {
-        font-weight: bold;
-        font-size: 1.2em;
-        margin-bottom: 5px;
-    }
-    .team-desc {
-        font-size: 0.9em;
-        color: gray;
-    }
-    </style>
-""", unsafe_allow_html=True)
+    st.markdown("""
+        <style>
+        .team-card {
+            background-color: #f5f5f5;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+        }
+        .team-img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .team-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .team-desc {
+            font-size: 0.9em;
+            color: gray;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center;'>Meet Our Team</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Meet Our Team</h1>", unsafe_allow_html=True)
 
-# Helper function to encode image to base64
-def img_to_base64(img_path):
-    if os.path.exists(img_path):
-        with open(img_path, "rb") as f:
-            data = f.read()
-            return base64.b64encode(data).decode()
-    return ""
+    def img_to_base64(img_path):
+        if os.path.exists(img_path):
+            with open(img_path, "rb") as f:
+                return base64.b64encode(f.read()).decode()
+        return ""
 
-# Team data
-team = [
-    {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
-    {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
-    {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
-    {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
-]
+    team = [
+        {"img": "pics/Hannah.png", "name": "Hannah Gordon", "desc": "IBE Financial Engineering '26"},
+        {"img": "pics/akanksha.jpeg", "name": "Akanksha Gavade", "desc": "IBE Industrial Engineering and Finance '26"},
+        {"img": "pics/marti.jpeg", "name": "Marti Figueres", "desc": "IBE Finance and Chemical Engineering '25"},
+        {"img": "pics/Henry.jpeg", "name": "Henry Piotrowski", "desc": "Finance '25"},
+    ]
 
-# Display team in 2x2 grid with styled cards
-for i in range(0, len(team), 2):
-    cols = st.columns(2)
-    for col, person in zip(cols, team[i:i+2]):
-        img_data = img_to_base64(person['img'])
-        col.markdown(f"""
-        <div class='team-card'>
-            <img src='data:image/png;base64,{img_data}' class='team-img'>
-            <div class='team-name'>{person['name']}</div>
-            <div class='team-desc'>{person['desc']}</div>
-        </div>
-        """, unsafe_allow_html=True)
+    for i in range(0, len(team), 2):
+        cols = st.columns(2)
+        for col, person in zip(cols, team[i:i+2]):
+            img_data = img_to_base64(person["img"])
+            col.markdown(f"""
+                <div class='team-card'>
+                    <img src='data:image/png;base64,{img_data}' class='team-img'>
+                    <div class='team-name'>{person['name']}</div>
+                    <div class='team-desc'>{person['desc']}</div>
+                </div>
+            """, unsafe_allow_html=True)
