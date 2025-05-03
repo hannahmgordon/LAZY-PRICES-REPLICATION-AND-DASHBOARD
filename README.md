@@ -1,7 +1,7 @@
 
 ## Purpose
 
-#### Check out our [website](https://lazypricesreplication.streamlit.app/) to explore our team's work!
+#### Check out our [website](https://lazypricesreplication.streamlit.app/) and [presentation slides](https://docs.google.com/presentation/d/109h2Jtyhk72VhBz37f_a77PcTTBj88Z4-EkpcDfetac/edit?usp=sharing) to explore our team's work!
 
 #### The data cleaning and text analysis related tasks are performed in the TextualAnalysis.ipynb .
 
